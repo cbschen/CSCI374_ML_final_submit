@@ -5,6 +5,7 @@ import pandas
 from textblob import TextBlob
 import sys
 
+
 def most_common_n_grams(poems, n, number_of_n_grams):
     n_gram_counts = {}
 
@@ -28,10 +29,6 @@ def most_common_n_grams(poems, n, number_of_n_grams):
     keys = []
     for key in n_gram_counts.keys():
         keys.append(key)
-
-    # for n_gram in keys:
-    #     if n_gram_counts[n_gram] <= 10:
-    #         del n_gram_counts[n_gram]
 
     print("Number of total n grams: %d" % len(n_gram_counts))
     # print("Number of times 'of life' appears: %d" % n_gram_counts["of life "])
@@ -196,13 +193,6 @@ def get_pos_tags(poems):
     return pos_tags
 
 
-# def get_num_stanzas(poem_stanzas):
-#     num_stanzas = []
-#     for poem in poem_stanzas:
-#         num_stanzas.append(len(poem))
-#     return num_stanzas
-
-
 def get_poem_lens(poems):
     poem_lens = []
     for poem in poems:
@@ -263,10 +253,8 @@ def main():
     #         print("stanza: " + stanza)
     #     print("\nNEW POEM:")
 
-    # avg_stnz_lens = avg_stanza_len(poem_stanzas)
-    # print("Avg Stanza Len: " + str(avg_stnz_lens))
-    # num_stanzas = get_num_stanzas(poem_stanzas)
-    # print("Num Stanzas: " + str(num_stanzas))
+    # ----------CODE FOR NON-N-GRAM ATTRIBUTES-------------
+
     # sentiments = analyze_sentiment(poem_texts)
     # print("Sentiments: " + str(sentiments))
     # unique_word_ratios = get_word_diversity(poem_words)
@@ -279,12 +267,15 @@ def main():
     # parts_of_speech = pos_counts(poem_words)
     # # print("Parts of speech: " + str(parts_of_speech[359]))
     # # pos_tags = get_pos_tags(poem_words)
-    n_gram_count = 4200
-    n_grams = most_common_n_grams(poem_words, 1, n_gram_count)
+
+    # -----CODE FOR N-GRAM ATTRIBUTES--------
+    n_gram_count = 200
+    n_grams = most_common_n_grams(poem_words, 3, n_gram_count)
     # print("n grams: " + str(n_grams))
-    n_gram_frequencies = get_n_gram_proportions(poem_words, n_grams, 1)
+    n_gram_frequencies = get_n_gram_proportions(poem_words, n_grams, 3)
     print("n gram frequencies for poem 1: " + str(n_gram_frequencies[0]))
 
+    # Write non-n-gram attributes to csv
     # write_atts_to_csv(labels, sentiments, unique_word_ratios, poem_lengths, avg_word_lens, parts_of_speech)
 
     filename = 'poem_attributes.csv'
@@ -293,7 +284,7 @@ def main():
     file.write("Century,")
 
     for i in range(n_gram_count):
-        file.write("1-gram %d" % i)
+        file.write("2-gram %d" % i)
         if i != n_gram_count - 1:
             file.write(",")
 
