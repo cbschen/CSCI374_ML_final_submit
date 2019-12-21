@@ -1,0 +1,19 @@
+Group members: Jiachen Liu, Simon Harris, Will Tokunaga
+We affirm that we have adhered to the Honor Code in this assignment.-- Jiachen Liu, Simon Harris, Will Tokunaga
+
+RNN_kears_gpu.py RNN implementation 
+LSTM_keras_gpu.py LSTM implementation
+bidrectional_LSTM_keras_gpu.py bidirectional LSTM implementation that runs on gnu
+ANN_keras_vectorized.py ANN with word embedding approach
+bayes_approach.py Naive Bayes implementation
+topN.py generate the attribute dataset composed of top N most frequent unigrams. TopN.py doesn't take arguments. The argument N is specified inside the script and is currently set to use all words.Also, remove_stop_words and stemming are specified inside the script.
+SVM_keras.py implements linear SVM and also plot out word clouds
+ANN_keras.py the traditional ANN approach that doesn't use word embeddings
+grid_search.py the script to run RNN, LSTN, bidirectional LSTM and ANN with word embedding 
+SVM, ANN_keras and bayes_approach.py doesn't take arguments to run. Arguments such as file path, stemming, stopword removal are modified directly in the program.
+Poem_length_distribution.png is a histogram that plots out the lengths of poems
+get_labels.py is a script to get number of attributes, the number of possible labels, and the proportion of each label in the data set
+n_grams.py takes two arguments, the first is the number of ngrams to use (top k most frequent n-grams), and second argument is n. 
+poem_structure_attributes.py is the script to generate the sentence structure attributes
+poem_structure_attributes.csv is the sentence structure attributes dataset  
+
