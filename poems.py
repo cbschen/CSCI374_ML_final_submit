@@ -30,6 +30,10 @@ def most_common_n_grams(poems, n, number_of_n_grams):
     for key in n_gram_counts.keys():
         keys.append(key)
 
+    for n_gram in keys:
+        if n_gram_counts[n_gram] <= 3:
+            del n_gram_counts[n_gram]
+
     print("Number of total n grams: %d" % len(n_gram_counts))
     # print("Number of times 'of life' appears: %d" % n_gram_counts["of life "])
 
@@ -121,17 +125,6 @@ def split_stanzas(poems):
     for poem in poems:
         poem_stanzas.append(re.split('[^\s]\s{3}[^\s]', poem))
     return poem_stanzas
-
-
-# Returns list of average stanza length for each poem
-def avg_stanza_len(poem_stanzas):
-    avg_stnz_lens = []
-    for poem in poem_stanzas:
-        total_words = 0
-        for stanza in poem:
-            total_words += len(stanza)
-        avg_stnz_lens.append(total_words / len(poem))
-    return avg_stnz_lens
 
 
 # Returns ratio of unique words to total words in poem
@@ -246,23 +239,20 @@ def main():
 
         poem_words.append(word_list)
 
-    # poem_stanzas = split_stanzas(poem_texts)
-
-    # for poem1 in poem_stanzas:
-    #     for stanza in poem1:
-    #         print("stanza: " + stanza)
-    #     print("\nNEW POEM:")
-
     # ----------CODE FOR NON-N-GRAM ATTRIBUTES-------------
 
     # sentiments = analyze_sentiment(poem_texts)
     # print("Sentiments: " + str(sentiments))
+
     # unique_word_ratios = get_word_diversity(poem_words)
     # print("Word Diversity: " + str(unique_word_ratios))
+
     # poem_lengths = get_poem_lens(poem_words)
     # print("Poem word counts: " + str(poem_lengths))
+
     # avg_word_lens = get_avg_word_lens(poem_words)
     # print("Average word lengths: " + str(avg_word_lens))
+
     # # print("Pos counts: " + str(pos_counts(poem_texts)))
     # parts_of_speech = pos_counts(poem_words)
     # # print("Parts of speech: " + str(parts_of_speech[359]))
@@ -284,7 +274,7 @@ def main():
     file.write("Century,")
 
     for i in range(n_gram_count):
-        file.write("2-gram %d" % i)
+        file.write("3-gram %d" % i)
         if i != n_gram_count - 1:
             file.write(",")
 
