@@ -16,4 +16,4 @@ get_labels.py is a script to get number of attributes, the number of possible la
 n_grams.py takes two arguments, the first is the number of ngrams to use (top k most frequent n-grams), and second argument is n. 
 poem_structure_attributes.py is the script to generate the sentence structure attributes
 poem_structure_attributes.csv is the sentence structure attributes dataset  
-
+poems_reordered_further_cleaned.csv: the poems dataset with 16th century poems removed due to label imbalance.
