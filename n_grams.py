@@ -147,3 +147,6 @@ def main():
 
         if i != len(poem_words) - 1:
             file.write("\n")
+
+
+main()
